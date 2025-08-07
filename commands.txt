@@ -1,0 +1,17 @@
+# Generate Prisma client
+npx prisma generate
+
+# Start Prisma database server
+npx prisma dev
+
+# Push schema to database (in a new terminal while prisma dev is running)
+npx prisma db push
+
+# Seed the database with admin user
+npm run db:seed
+
+# View database in browser (optional)
+npx prisma studio
+
+# Start the API (make sure database is running first)
+npm run dev
