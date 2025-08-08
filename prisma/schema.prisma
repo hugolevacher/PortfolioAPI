@@ -17,5 +17,19 @@ datasource db {
 model ContactMe {
   id    Int     @id @default(autoincrement())
   key String  @unique
-  value  String?
+  link String
+  displayedText  String
+}
+
+model File {
+  id       Int    @id @default(autoincrement())
+  name     String
+  filePath String
+}
+
+model Skill {
+  id       Int    @id @default(autoincrement())
+  order Int
+  name String
+  imagePath String
 }
