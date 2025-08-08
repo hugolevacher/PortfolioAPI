@@ -7,9 +7,6 @@ npx prisma dev
 # Push schema to database (in a new terminal while prisma dev is running)
 npx prisma db push
 
-# Seed the database with admin user
-npm run db:seed
-
 # View database in browser (optional)
 npx prisma studio
 
