@@ -27,9 +27,22 @@ model ContactMe {
   displayedText  String
 }
 
+model File {
+  id       Int    @id @default(autoincrement())
+  filename String
+  originalName String
+  path     String
+  mimetype String
+  size     Int
+  createdAt DateTime @default(now())
+  skill    Skill?
+}
+
 model Skill {
   id       Int    @id @default(autoincrement())
-  order Int
-  name String
-  fileName String
+  order    Int
+  name     String
+  fileId   Int?   @unique
+  file     File?  @relation(fields: [fileId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
 }
