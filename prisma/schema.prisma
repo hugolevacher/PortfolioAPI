@@ -20,13 +20,6 @@ model User {
   createdAt DateTime @default(now())
 }
 
-model ContactMe {
-  id    Int     @id @default(autoincrement())
-  key String  @unique
-  link String
-  displayedText  String
-}
-
 model File {
   id       Int    @id @default(autoincrement())
   filename String
@@ -36,6 +29,8 @@ model File {
   size     Int
   createdAt DateTime @default(now())
   skill    Skill?
+  projectImage Project? @relation("ProjectImage")
+  projectVideo Project? @relation("ProjectVideo")
 }
 
 model Skill {
@@ -45,4 +40,22 @@ model Skill {
   fileId   Int?   @unique
   file     File?  @relation(fields: [fileId], references: [id], onDelete: SetNull)
   createdAt DateTime @default(now())
+}
+
+model Project {
+  id          Int    @id @default(autoincrement())
+  order       Int
+  titleFr     String
+  titleEn     String
+  descriptionFr String @db.Text
+  descriptionEn String @db.Text
+  textFr      String @db.Text
+  textEn      String @db.Text
+  projectUrl  String?
+  githubUrl   String?
+  imageId     Int?   @unique
+  videoId     Int?   @unique
+  image       File?  @relation("ProjectImage", fields: [imageId], references: [id], onDelete: SetNull)
+  video       File?  @relation("ProjectVideo", fields: [videoId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
 }
