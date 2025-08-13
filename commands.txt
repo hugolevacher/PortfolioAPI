@@ -7,6 +7,7 @@ npm run start:dev
 
 docker commands:
 docker ps
-docker logs portfolioapi_api_1
-docker-compose build --no-cache
-docker-compose up -d
+docker logs **container name**
+docker compose build --no-cache
+docker compose up -d
+docker compose up -d --build
