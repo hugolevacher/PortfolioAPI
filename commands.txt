@@ -1,5 +1,12 @@
 npx prisma migrate dev --name **migration name**
+npx prisma migrate deploy (for prod)
 npx prisma generate
 npx prisma studio
 
 npm run start:dev
+
+docker commands:
+docker ps
+docker logs portfolioapi_api_1
+docker-compose build --no-cache
+docker-compose up -d
