@@ -1,3 +1,4 @@
+prisma commands:
 npx prisma migrate dev --name **migration name**
 npx prisma migrate deploy (for prod)
 npx prisma generate
@@ -11,3 +12,11 @@ docker logs **container name**
 docker compose build --no-cache
 docker compose up -d
 docker compose up -d --build
+docker compose down
+
+postgres commands:
+PGPASSWORD='***' psql -U <USER NAME> -d <DB NAME> -h 127.0.0.1 -p 5432 -c "SELECT NOW();"
+\dt (tables in db)
+\d tablename (columns in table)
+\l (list of db)
+\q (quit)
